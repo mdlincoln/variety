@@ -4,7 +4,7 @@
 #' a population
 #'
 #' Simpson's diversity is defined as: \deqn{D = 1 - \sum \frac{n_i}{N}^{2}}
-#' where \eqn{n_i} is the number of observations within a given class, and
+#' where \eqn{n_i} is the number of observations in the \eqn{i}th category, and
 #' \eqn{N} is the total number of all observations.
 #'
 #' @param n A numeric vector
