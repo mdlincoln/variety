@@ -18,5 +18,6 @@
 #' simpson(p)
 
 simpson <- function(n) {
+  type_check(n)
   1 - sum((n/sum(n))^2)
 }
