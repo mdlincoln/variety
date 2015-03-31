@@ -52,3 +52,28 @@ standardized_simpson <- function(n) {
   type_check(n)
   (1 - sum((n/sum(n))^2))/(1 - 1/length(n))
 }
+
+#' Junge's diversity.
+#'
+#' \code{junge} returns the Junge diversity for a vector of class counts in a
+#' population
+#'
+#' Junge's diversity is defined as: \deqn{H=(1-\sqrt{k})(\sqrt{k-1}-\sqrt{k\sum
+#' \frac{n_i}{N}^{2}}-1)} where \eqn{n_i} is the number of observations in the
+#' \eqn{i}th category, \eqn{N} is the total number of all observations, and
+#' \eqn{k} is the number of categories.
+#'
+#' @param n A numeric vector
+#'
+#' @references Junge, Kenneth. “Diversity of Ideas about Diversity Measurement.”
+#'   \emph{Scandinavian Journal of Psychology} 35, no. 1 (1994): 16–26.
+#'   doi:\href{http://dx.doi.org/10.1111/j.1467-9450.1994.tb00929.x}{10.1111/j.1467-9450.1994.tb00929.x}.
+#'
+#' @examples
+#' p <- c(5, 10, 30, 1, 5)
+#' junge(p)
+
+junge <- function(n) {
+  type_check(n)
+  (1 - sqrt(length(n))) * (sqrt(length(n) - 1) - sqrt(length(n) * sum((n/sum(n))^2)) - 1)
+}
