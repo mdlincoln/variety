@@ -13,6 +13,8 @@
 #'   4148 (April 30, 1949): 688–688.
 #'   doi:\href{http://dx.doi.org/10.1038/163688a0}{10.1038/163688a0}.
 #'
+#' @seealso \link{standardized_simpson}
+#'
 #' @examples
 #' p <- c(5, 10, 30, 1, 5)
 #' simpson(p)
@@ -39,6 +41,8 @@ simpson <- function(n) {
 #' @references Simpson, E. H. “Measurement of Diversity.” \emph{Nature} 163, no.
 #'   4148 (April 30, 1949): 688–688.
 #'   doi:\href{http://dx.doi.org/10.1038/163688a0}{10.1038/163688a0}.
+#'
+#' @seealso \link{simpson}
 #'
 #' @examples
 #' p <- c(5, 10, 30, 1, 5)
