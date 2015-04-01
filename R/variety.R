@@ -103,3 +103,55 @@ kvalseth <- function(n) {
   type_check(n)
   (1 - sum((n/sum(n))^2))^(-1) - 1
 }
+
+#' Kvalseth's diversity
+#'
+#' \code{kvalseth} returns the Kvalseth diversity for a vector of class counts
+#' in a popultation
+#'
+#' Kvalseth diversity is defined as \deqn{OD=(1-\sum \frac{n_i}{N}^2)^{-1}-1}
+#' where \eqn{n_i} is the number of observations in the \eqn{i}th category and
+#' \eqn{N} is the total number of all observations. Values are generally
+#' negatively correlated with Simpson's diversity, with low diversity
+#' approaching Inf, and high diversity approaching 0.
+#'
+#' @param n A numeric vector
+#'
+#' @references Kvålseth, Tarald O. “Note on Biological Diversity, Evenness, and
+#'   Homogeneity Measures.” \emph{Oikos} 62, no. 1 (October 1991): 123–27.
+#'   doi:\href{http://dx.doi.org/10.2307/3545460}{10.2307/3545460}.
+#'
+#' @examples
+#' p <- c(5, 10, 30, 1, 5)
+#' kvalseth(p)
+
+kvalseth <- function(n) {
+  type_check(n)
+  (1 - sum((n/sum(n))^2))^(-1) - 1
+}
+
+#' Fager's diversity
+#'
+#' \code{fager} returns the Fager diversity for a vector of class counts in a
+#' population.
+#'
+#' Fager's diversity is defined as \deqn{S=(\frac{k\sum \frac{n_i}{N}^{2} -
+#' N^{2}}{k(k - 1)})^{\frac{1}{2}}}, where \eqn{n_i} is the number of
+#' observations in the \eqn{i}th category, \eqn{N} is the total number of all
+#' observations, and \eqn{k} is the number of categories.
+#'
+#' @param n A numeric vector
+#'
+#' @references Fager, E. W. “Diversity: A Sampling Study.” \emph{The American
+#'   Naturalist} 106, no. 949 (May 1972): 293–310.
+#'   \url{http://www.jstor.org/stable/2459778}
+#'
+#' @examples
+#' p <- c(5, 10, 30, 1, 5)
+#' fager(p)
+
+fager <- function(n) {
+  type_check(n)
+  ((length(n) * sum((n/sum(n))^2 - sum(n)^2)) / (length(n) * (length(n) - 1)))^(0.5)
+}
+}
