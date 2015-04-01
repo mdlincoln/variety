@@ -3,7 +3,7 @@ Type: Package
 Title: Probability-, logarithm-, and rank-based measures for diversity
 Version: 0.1
 Date: 2015-03-30
-Author@R: person("Matthew", "Lincoln", email = "mlincol1@umd.edu", role = c("aut", "cre"))
+Authors@R: person("Matthew", "Lincoln", email = "mlincol1@umd.edu", role = c("aut", "cre"))
 Description: Implementations of many different methods for measuring
   variety/diversity of a classified population, including: Simpson,
   Les and Maher, Junge, Kvalseth, Fager, Sahnnon, Brillouin,
