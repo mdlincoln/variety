@@ -154,4 +154,26 @@ fager <- function(n) {
   type_check(n)
   ((length(n) * sum((n/sum(n))^2 - sum(n)^2)) / (length(n) * (length(n) - 1)))^(0.5)
 }
+
+#' Shannon's diversity
+#'
+#' \code{shannon} returns the Shannon diversity for a vector of class counts in
+#' a population.
+#'
+#' Shannons's diversity is defined as \deqn{H = -\sum \frac{n_i}{N}^{2} * \ln
+#' \frac{n_i}{N}^{2}}, where \eqn{n_i} is the number of observations in the
+#' \eqn{i}th category and \eqn{N} is the total number of all observations.
+#'
+#' @param n A numeric vector
+#'
+#' @references Shannon, Claude Elwood, and Warren Weaver. \emph{The Mathematical
+#'   Theory of Communication}. Urbana: University of Illinois Press, 1949.
+#'
+#' @examples
+#' p <- c(5, 10, 30, 1, 5)
+#' shannon(p)
+
+shannon <- function(n) {
+  type_check(n)
+  -sum((n/sum(n)) * log(n/sum(n)))
 }
