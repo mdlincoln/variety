@@ -177,3 +177,31 @@ shannon <- function(n) {
   type_check(n)
   -sum((n/sum(n)) * log(n/sum(n)))
 }
+
+#' Hall and Tideman's diversity
+#'
+#' \code{hall_tideman} returns the Hall and Tideman's diversity for a vector of
+#' class counts in a population.
+#'
+#' Hall and Tideman's diversity is defined as \deqn{TH = 1/(2\sum
+#' {r_i}\frac{n_i}{N}^{2}) - 1}, where \eqn{n_i} is the number of observations
+#' in the \eqn{i}th category, \eqn{N} is the total number of all observations,
+#' and \eqn{r} is the rank of the \eqn{i}th category, with 1 being the largest
+#' category
+#'
+#' @param n A numeric vector
+#'
+#' @references Hall, Marshall, and Nicolaus Tideman. “Measures of
+#'   Concentration.” \emph{Journal of the American Statistical Association} 62,
+#'   no. 317 (March 1967): 162–68.
+#'   doi:\href{http://dx.doi.org/10.1080/01621459.1967.10482897}{10.1080/01621459.1967.10482897}.
+#'
+#'
+#' @examples
+#' p <- c(5, 10, 30, 1, 5)
+#' hall_tideman(p)
+
+hall_tideman <- function(n) {
+  type_check(n)
+  1 / (2 * sum(rank(n, ties = "random") * (n/sum(n))) - 1)
+}
