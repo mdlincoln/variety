@@ -38,6 +38,9 @@ simpson <- function(n) {
 #'
 #' @param n A numeric vector
 #'
+#' @note This measure is ill-defined for populations with only one class, so
+#'   \code{standardized_simpson} will return 0 instead.
+#'
 #' @references Simpson, E. H. “Measurement of Diversity.” \emph{Nature} 163, no.
 #'   4148 (April 30, 1949): 688–688.
 #'   doi:\href{http://dx.doi.org/10.1038/163688a0}{10.1038/163688a0}.
@@ -50,6 +53,12 @@ simpson <- function(n) {
 
 standardized_simpson <- function(n) {
   type_check(n)
+
+  if(length(n) == 1) {
+    warning("standardized_simpson is ill-defined for populations with only one class. Returning 0.")
+    return(0)
+  }
+
   (1 - sum((n/sum(n))^2))/(1 - 1/length(n))
 }
 
