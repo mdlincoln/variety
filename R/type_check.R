@@ -7,6 +7,6 @@
 #' @keywords internal
 
 type_check <- function(x) {
-  if(class(x) != "numeric")
-    stop("n must be of class \"numeric\"")
+  if(!(class(x) %in% c("numeric", "integer")))
+    stop("n must be of class \"numeric\" or \"integer\"")
 }
